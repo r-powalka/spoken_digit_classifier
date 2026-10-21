@@ -49,7 +49,7 @@ Implemented operations:
     - Computing first- and second-order derivatives of MFCC (delta and delta-delta coefficients)
 
 ## Classiffication
-MFCC feature vectors are concatenated for each digit class. A separate Gaussian Mixture Model (GMM) is then trained for each digit using the Expectation-Maximization (EM) algorithm to model its feature distribution.
+MFCC feature vectors are concatenated for each digit class and a separate Gaussian Mixture Model (GMM) is then trained for each digit using the Expectation-Maximization (EM) algorithm to model the feature distribution.
 
 Implemented operations:
 
@@ -57,7 +57,7 @@ Implemented operations:
 
     1. **Initialization:** Initialize the mixture weights uniformly, select observations randomly as the initial component means and initialize all covariance matrices using the global sample covariance. Evaluate the initial log-likelihood.
 
-    2. **Expectation step (E-step):** Evaluate the responsibilities using the current mixture weights, mean vectors and covariance matrices. To improve prevent numerical underflow, computations necessary for this step are performed in log-space.
+    2. **Expectation step (E-step):** Evaluate the responsibilities using the current mixture weights, mean vectors and covariance matrices. To prevent numerical underflow, computations necessary for this step are performed in log-space.
 
     3. **Maximization step (M-step):** Update the mixture weights, mean vectors and covariance matrices using the responsibilities computed in the E-step. A small diagonal regularization term is added to each covariance matrix to improve numerical conditioning.
 
@@ -77,12 +77,12 @@ Clone the repository:
 
    ```bash
    git clone https://github.com/r-powalka/spoken_digit_classifier
-   cd spoken_digit_classifier
    ```
 
 Install the project and its dependencies:
 
 ```bash
+cd spoken_digit_classifier
 pip install .
 ```
 
@@ -102,8 +102,7 @@ python -m spoken_digits.main
 ## References
 [1] J. S. K. (Jakobovski), *Free Spoken Digit Dataset (FSDD)*. GitHub repository. Available: https://github.com/Jakobovski/free-spoken-digit-dataset
 
-[2] Cambridge University Engineering Department, *The HTK Book*.
-Available: https://htk.eng.cam.ac.uk/docs/docs.shtml
+[2] S. Young et al., *The HTK Book*.
 
 [3] C. M. Bishop, *Pattern Recognition and Machine Learning*. New York: Springer, 2006
 
